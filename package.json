@@ -1,0 +1,18 @@
+{
+  "name": "vue-mfe-demo",
+  "private": true,
+  "workspaces": [
+    "host-shell",
+    "mfe-hotel",
+    "mfe-coliving"
+  ],
+  "devDependencies": {
+    "concurrently": "^9.0.0",
+    "prettier": "^3.8.1"
+  },
+  "scripts": {
+    "dev": "concurrently -n HOTEL,COLIVING,HOST -c auto \"npm run dev -w mfe-hotel\" \"npm run dev -w mfe-coliving\" \"npm run dev -w host-shell\"",
+    "build": "npm run build -w mfe-hotel && npm run build -w mfe-coliving && npm run build -w host-shell",
+    "format": "prettier . --write"
+  }
+}
