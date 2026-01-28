@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [
     vue(),
     federation({
-      name: 'hotel',
+      name: 'hotels',
       filename: 'remoteEntry.js',
       exposes: {
         './HotelApp': './src/HotelApp.vue'
@@ -17,7 +17,8 @@ export default defineConfig({
   build: {
     target: 'esnext'
   },
-  server: {
+  preview: {
+    host: '127.0.0.1',
     port: 5001,
     strictPort: true,
     cors: true

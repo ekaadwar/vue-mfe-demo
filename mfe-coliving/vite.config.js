@@ -14,12 +14,15 @@ export default defineConfig({
       shared: ['vue']
     })
   ],
-  build: {
-    target: 'esnext'
-  },
+  build: { target: 'esnext' },
   server: {
+    host: '127.0.0.1',
     port: 5002,
     strictPort: true,
-    cors: true
+    cors: true,
+    origin: 'http://127.0.0.1:5002',
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    }
   }
 })

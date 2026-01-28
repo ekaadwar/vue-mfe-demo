@@ -3,16 +3,16 @@
   "private": true,
   "workspaces": [
     "host-shell",
-    "mfe-hotel",
-    "mfe-coliving"
+    "mfe-hotel"
   ],
   "devDependencies": {
     "concurrently": "^9.0.0",
-    "prettier": "^3.8.1"
+    "prettier": "^3.8.1",
+    "wait-on": "^9.0.3"
   },
   "scripts": {
-    "dev": "concurrently -n HOTEL,COLIVING,HOST -c auto \"npm run dev -w mfe-hotel\" \"npm run dev -w mfe-coliving\" \"npm run dev -w host-shell\"",
-    "build": "npm run build -w mfe-hotel && npm run build -w mfe-coliving && npm run build -w host-shell",
+    "dev": "concurrently -n HOTEL,HOST -c auto \"npm run dev -w mfe-hotel\" \"npx wait-on http://127.0.0.1:5001/aseets/remoteEntry.js && npm run dev -w host-shell\"",
+    "build": "npm run build -w mfe-hotel && npm run build -w host-shell",
     "format": "prettier . --write"
   }
 }

@@ -2,15 +2,13 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import federation from '@originjs/vite-plugin-federation'
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
     federation({
       name: 'host',
       remotes: {
-        hotel: 'http://localhost:5001/assets/remoteEntry.js',
-        coliving: 'http://localhost:5002/assets/remoteEntry.js'
+        hotels: 'http://127.0.0.1:5001/assets/remoteEntry.js'
       },
       shared: ['vue']
     })
@@ -19,9 +17,10 @@ export default defineConfig({
     target: 'esnext'
   },
   optimizeDeps: {
-    exclude: ['hotel', 'coliving']
+    exclude: ['hotel']
   },
   server: {
+    host: '127.0.0.1',
     port: 5000,
     strictPort: true,
     cors: true

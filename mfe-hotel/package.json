@@ -4,16 +4,16 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently -n BUILD,SERVE -c auto \"vite build --watch\" \"vite preview --host 127.0.0.1 --port 5001 --strictPort\"",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview --host 127.0.0.1 --port 5001 --strictPort"
   },
   "dependencies": {
     "@originjs/vite-plugin-federation": "^1.4.1",
     "vue": "^3.5.24"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^6.0.1",
-    "vite": "^7.2.4"
+    "@vitejs/plugin-vue": "^6.0.3",
+    "vite": "^6.4.1"
   }
 }

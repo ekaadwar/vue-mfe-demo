@@ -2,7 +2,7 @@
   <div class="grid">
     <section class="panel">
       <h3 class="title">Hotel Micro App</h3>
-      <component :is="HotelApp" />
+      <HotelApp />
     </section>
   </div>
 </template>
@@ -10,10 +10,24 @@
 <script setup>
 import { defineAsyncComponent } from 'vue'
 
-const HotelApp = defineAsyncComponent({
-  loader: () => import('hotel/HotelApp'),
-  timeout: 15000
-})
+const HotelApp = defineAsyncComponent(() => import('hotels/HotelApp'))
+
+// const HotelApp = defineAsyncComponent({
+//   loader: () =>
+//     new Promise((resolve) => {
+//       resolve(import('hotels/HotelApp.js'))
+//     }, 2000),
+//   onError: (error, retry, fail, attempts) => {
+//     console.log('-- Failed to load component : ', error)
+//     console.log('-- Attempts : ', attempts)
+
+//     if (attempts >= 3) {
+//       return fail()
+//     }
+
+//     return retry()
+//   }
+// })
 </script>
 
 <style scoped>
@@ -30,6 +44,7 @@ const HotelApp = defineAsyncComponent({
 }
 .title {
   margin: 0 0 10px;
+  color: slategray;
 }
 @media (max-width: 900px) {
   .grid {
