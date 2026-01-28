@@ -8,7 +8,8 @@ export default defineConfig({
     federation({
       name: 'host',
       remotes: {
-        hotels: 'http://127.0.0.1:5001/assets/remoteEntry.js'
+        hotels: 'http://127.0.0.1:5001/assets/remoteEntry.js',
+        coliving: 'http://127.0.0.1:5002/assets/remoteEntry.js'
       },
       shared: ['vue']
     })
@@ -17,7 +18,7 @@ export default defineConfig({
     target: 'esnext'
   },
   optimizeDeps: {
-    exclude: ['hotel']
+    exclude: ['hotel', 'coliving']
   },
   server: {
     host: '127.0.0.1',

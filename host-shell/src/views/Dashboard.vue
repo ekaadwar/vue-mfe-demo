@@ -4,6 +4,11 @@
       <h3 class="title">Hotel Micro App</h3>
       <HotelApp />
     </section>
+
+    <section class="panel">
+      <h3 class="title">Coliving Micro App</h3>
+      <ColivingApp />
+    </section>
   </div>
 </template>
 
@@ -11,6 +16,7 @@
 import { defineAsyncComponent } from 'vue'
 
 const HotelApp = defineAsyncComponent(() => import('hotels/HotelApp'))
+const ColivingApp = defineAsyncComponent(() => import('coliving/ColivingApp'))
 
 // const HotelApp = defineAsyncComponent({
 //   loader: () =>

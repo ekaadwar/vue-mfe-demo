@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently -n BILD,SERVE -c auto \"vite build --watch\" \"vite preview --host 127.0.0.1 --port 5002 --strictPort\"",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview --host 127.0.0.1 --port 5002 --strictPort"
   },
   "dependencies": {
     "@originjs/vite-plugin-federation": "^1.4.1",
