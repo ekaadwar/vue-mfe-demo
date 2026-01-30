@@ -58,11 +58,8 @@ Dokumentasi singkat untuk melakukan clone, instalasi, dan menjalankan project.
 ### Build Masing-Masing Remote Project
 
 ```bash
-cd /mfe-coliving
-npm run build
-
-cd /mfe-hotel
-npm run build
+npm run build ./mfe-coliving
+npm run build ./mfe-hotel
 ```
 
 ### Jalankan Masing-Masing Project
@@ -70,20 +67,17 @@ npm run build
 1. Coliving Project:
 
    ```bash
-   cd /mfe-coliving
-   npm run dev
+   npm run dev -w ./mfe-coliving
    ```
 
 2. Hotel Project:
    ```bash
-   cd /mfe-hotel
-   npm run dev
+   npm run dev -w ./mfe-hotel
    ```
 
 3. Host Project:
    ```bash
-   cd /host-shell
-   npm run dev
+   npm run dev -w ./host-shell
    ```
 
 ---
