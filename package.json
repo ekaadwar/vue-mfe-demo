@@ -3,7 +3,8 @@
   "private": true,
   "workspaces": [
     "host-shell",
-    "mfe-hotel"
+    "mfe-hotel",
+    "mfe-coliving"
   ],
   "devDependencies": {
     "concurrently": "^9.0.0",
