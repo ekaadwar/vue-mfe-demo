@@ -18,13 +18,13 @@ Dokumentasi singkat untuk melakukan clone, instalasi, dan menjalankan project.
 2. Clone repository:
 
    ```bash
-   git clone <REPO_URL>
+   git clone git@github.com:ekaadwar/vue-mfe-demo.git
    ```
 
 3. Masuk ke folder project:
 
    ```bash
-   cd <NAMA_FOLDER_PROJECT>
+   cd vue-mfe-demo
    ```
 
 4. (Opsional) Checkout ke branch tertentu jika dibutuhkan:
