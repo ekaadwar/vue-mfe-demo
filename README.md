@@ -1,3 +1,6 @@
+# Deskripsi Project
+Project ini dibuat untuk kebutuhan pengujian dan penerapan metodologi micro-frontend. Aplikasi dibangun dalam bentuk Single Page Application (SPA) yang menampilkan data Hotel dan Coliving dalam satu aplikasi host. Modul Hotel dan Coliving masing-masing merupakan remote application yang berjalan terpisah pada environment yang berbeda.
+
 # Project Setup Guide
 
 Dokumentasi singkat untuk melakukan clone, instalasi, dan menjalankan project.
@@ -52,30 +55,35 @@ Dokumentasi singkat untuk melakukan clone, instalasi, dan menjalankan project.
 
 ## 3) Cara Menjalankan Project
 
-### Menjalankan di mode development
+### Build Masing-Masing Remote Project
 
 ```bash
-npm run dev
+cd /mfe-coliving
+npm run build
+
+cd /mfe-hotel
+npm run build
 ```
 
-### Menjalankan di mode production (umum)
+### Jalankan Masing-Masing Project
 
-1. Build project:
+1. Coliving Project:
 
    ```bash
-   npm run build
+   cd /mfe-coliving
+   npm run dev
    ```
 
-2. Jalankan hasil build:
+2. Hotel Project:
    ```bash
-   npm run start
+   cd /mfe-hotel
+   npm run dev
+   ```
+
+3. Host Project:
+   ```bash
+   cd /host-shell
+   npm run dev
    ```
 
 ---
-
-## Notes
-
-- Jika menggunakan port tertentu, cek output terminal atau konfigurasi di `.env`.
-- Jika kamu menggunakan package manager lain:
-  - Yarn: `yarn install`, `yarn dev`
-  - PNPM: `pnpm install`, `pnpm dev`
