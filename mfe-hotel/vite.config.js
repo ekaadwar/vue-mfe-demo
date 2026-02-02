@@ -11,7 +11,10 @@ export default defineConfig({
       exposes: {
         './HotelApp': './src/HotelApp.vue'
       },
-      shared: ['vue']
+      shared: {
+        vue: { singleton: true, requiredVersion: '^3.5.24' },
+        pinia: { singleton: true, requiredVersion: '^3.0.4' }
+      }
     })
   ],
   build: {

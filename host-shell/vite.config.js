@@ -11,14 +11,17 @@ export default defineConfig({
         hotels: 'http://127.0.0.1:5001/assets/remoteEntry.js',
         coliving: 'http://127.0.0.1:5002/assets/remoteEntry.js'
       },
-      shared: ['vue']
+      shared: {
+        vue: { singleton: true, requiredVersion: '^3.5.24' },
+        pinia: { singleton: true, requiredVersion: '^3.0.4' }
+      }
     })
   ],
   build: {
     target: 'esnext'
   },
   optimizeDeps: {
-    exclude: ['hotel', 'coliving']
+    exclude: ['hotels', 'coliving']
   },
   server: {
     host: '127.0.0.1',
