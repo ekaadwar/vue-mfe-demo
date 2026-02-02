@@ -4,7 +4,8 @@
   "workspaces": [
     "host-shell",
     "mfe-hotel",
-    "mfe-coliving"
+    "mfe-coliving",
+    "mfe-apartment"
   ],
   "devDependencies": {
     "concurrently": "^9.0.0",

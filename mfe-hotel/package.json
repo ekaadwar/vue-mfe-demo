@@ -6,14 +6,27 @@
   "scripts": {
     "dev": "concurrently -n BUILD,SERVE -c auto \"vite build --watch\" \"vite preview --host 127.0.0.1 --port 5001 --strictPort\"",
     "build": "vite build",
-    "preview": "vite preview --host 127.0.0.1 --port 5001 --strictPort"
+    "preview": "vite preview --host 127.0.0.1 --port 5001 --strictPort",
+     "test": "jest"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
   },
   "dependencies": {
     "@originjs/vite-plugin-federation": "^1.4.1",
     "vue": "^3.5.24"
   },
   "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.0",
+    "@babel/preset-typescript": "^7.28.5",
+    "@types/jest": "^30.0.0",
     "@vitejs/plugin-vue": "^6.0.3",
+    "babel-jest": "^30.2.0",
+    "jest": "^30.2.0",
+    "typescript": "^5.9.3",
     "vite": "^6.4.1"
   }
 }
