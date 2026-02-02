@@ -10,6 +10,7 @@
         <div class="title">{{ h.name }}</div>
         <div class="meta">{{ h.city }} • ⭐ {{ h.rating }}</div>
         <div class="price">Rp {{ h.price.toLocaleString('id-ID') }}/malam</div>
+        <RouterLink to="/detail">Detail</RouterLink>
       </article>
     </div>
   </section>
