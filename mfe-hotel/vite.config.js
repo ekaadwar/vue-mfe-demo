@@ -9,7 +9,7 @@ export default defineConfig({
       name: 'hotels',
       filename: 'remoteEntry.js',
       exposes: {
-        './HotelApp': './src/HotelApp.vue'
+        './HotelApp': './src/HotelApp.vue',
       },
       shared: {
         vue: { singleton: true, requiredVersion: '^3.5.24' },
