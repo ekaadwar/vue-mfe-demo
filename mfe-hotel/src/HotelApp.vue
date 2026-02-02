@@ -15,22 +15,21 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed, ref } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useHotelsStore, type Hotel } from './stores/hotels'
 
-const q = ref('')
+const hotelStore = useHotelsStore()
 
-const hotels = ref([
-  { id: 1, name: 'Grand Nusantara', city: 'Jakarta', rating: 4.6, price: 850000 },
-  { id: 2, name: 'Ocean View Resort', city: 'Bali', rating: 4.8, price: 1750000 },
-  { id: 3, name: 'Bandung City Stay', city: 'Bandung', rating: 4.3, price: 620000 },
-  { id: 4, name: 'Surabaya Business Hotel', city: 'Surabaya', rating: 4.2, price: 540000 }
-])
+const { hotels } = storeToRefs(hotelStore)
 
-const filtered = computed(() => {
+const q = ref<string>('')
+
+const filtered = computed<Hotel[]>(() => {
   const needle = q.value.toLowerCase()
   if (!needle) return hotels.value
-  return hotels.value.filter((x) => `${x.name} ${x.city}`.toLowerCase().includes(needle))
+  return hotels.value.filter((x: Hotel) => `${x.name} ${x.city}`.toLowerCase().includes(needle))
 })
 </script>
 
