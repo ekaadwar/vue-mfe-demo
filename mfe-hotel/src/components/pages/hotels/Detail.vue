@@ -1,16 +1,15 @@
 <template>
-  <h1>Detail Hotel</h1>
+  <h1>{{ detailHotel?.name }}</h1>
 
   <div v-if="detailHotel">
     <p><b>ID : </b>{{ detailHotel.id }}</p>
-    <p><b>Name : </b>{{ detailHotel.name }}</p>
   </div>
 
   <p v-else>Hotel Tidak Ditemukan.</p>
 </template>
 
 <script setup lang="ts">
-import { computed, watchEffect } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useHotelsStore, type Hotel } from '../../../stores/hotels'
@@ -21,8 +20,13 @@ const hotelStore = useHotelsStore()
 const { hotels } = storeToRefs(hotelStore)
 
 const hotelId = computed(() => {
+  console.log({ route })
   const raw = route.params.id
   return Array.isArray(raw) ? raw[0] : (raw?.toString() ?? '')
+})
+
+onMounted(() => {
+  console.log('detail hotel')
 })
 
 const detailHotel = computed<Hotel | undefined>(() =>

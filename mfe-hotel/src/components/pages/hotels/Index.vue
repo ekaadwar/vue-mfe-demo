@@ -10,7 +10,7 @@
         <div class="title">{{ item.name }}</div>
         <div class="meta">{{ item.city }} • ⭐ {{ item.rating }}</div>
         <div class="price">Rp {{ item.price.toLocaleString('id-ID') }}/malam</div>
-        <RouterLink :to="`/${item.id}`">Detail</RouterLink>
+        <RouterLink :to="`/hotel/${item.id}`">Detail</RouterLink>
       </article>
     </div>
   </section>

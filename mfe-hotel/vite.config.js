@@ -10,10 +10,12 @@ export default defineConfig({
       filename: 'remoteEntry.js',
       exposes: {
         './HotelApp': './src/components/pages/hotels/Index.vue',
+        './HotelDetail': './src/components/pages/hotels/Detail.vue'
       },
       shared: {
         vue: { singleton: true, requiredVersion: '^3.5.24' },
-        pinia: { singleton: true, requiredVersion: '^3.0.4' }
+        pinia: { singleton: true, requiredVersion: '^3.0.4' },
+        'vue-router': { singleton: true }
       }
     })
   ],
