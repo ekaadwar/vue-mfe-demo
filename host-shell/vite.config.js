@@ -13,7 +13,8 @@ export default defineConfig({
       },
       shared: {
         vue: { singleton: true, requiredVersion: '^3.5.24' },
-        pinia: { singleton: true, requiredVersion: '^3.0.4' }
+        pinia: { singleton: true, requiredVersion: '^3.0.4' },
+        'vue-router': { singleton: true }
       }
     })
   ],
