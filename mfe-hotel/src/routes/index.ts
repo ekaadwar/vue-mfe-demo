@@ -5,7 +5,7 @@ import HotelsDetail from '../components/pages/hotels/Detail.vue'
 
 const routes: RouteRecordRaw[] = [
   { path: '/', component: Hotels },
-  { path: '/detail', component: HotelsDetail }
+  { path: '/:id', component: HotelsDetail }
 ]
 
 const router = createRouter({

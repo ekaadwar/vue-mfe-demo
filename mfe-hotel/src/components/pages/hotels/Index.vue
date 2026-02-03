@@ -6,11 +6,11 @@
     </header>
 
     <div class="grid">
-      <article v-for="h in filtered" :key="h.id" class="card">
-        <div class="title">{{ h.name }}</div>
-        <div class="meta">{{ h.city }} • ⭐ {{ h.rating }}</div>
-        <div class="price">Rp {{ h.price.toLocaleString('id-ID') }}/malam</div>
-        <RouterLink to="/detail">Detail</RouterLink>
+      <article v-for="item in filtered" :key="item.id" class="card">
+        <div class="title">{{ item.name }}</div>
+        <div class="meta">{{ item.city }} • ⭐ {{ item.rating }}</div>
+        <div class="price">Rp {{ item.price.toLocaleString('id-ID') }}/malam</div>
+        <RouterLink :to="`/${item.id}`">Detail</RouterLink>
       </article>
     </div>
   </section>

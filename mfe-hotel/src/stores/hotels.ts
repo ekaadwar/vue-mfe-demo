@@ -11,7 +11,7 @@ export type HotelDetail = {
 }
 
 export type Hotel = {
-  id: number
+  id: string
   name: string
   city: string
   rating: number
@@ -28,7 +28,7 @@ export const useHotelsStore = defineStore('hotelsStore', {
   state: (): HotelsType => ({
     hotels: [
       {
-        id: 1,
+        id: 'JK-001',
         name: 'Grand Nusantara',
         city: 'Jakarta',
         rating: 4.6,
@@ -46,7 +46,7 @@ export const useHotelsStore = defineStore('hotelsStore', {
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur nibh pharetra odio fermentum, eget ullamcorper orci placerat. Cras sit amet euismod quam. Nunc hendrerit facilisis tempor. Donec et libero a ex venenatis cursus. Ut eu massa nibh. Ut lobortis mauris non quam gravida luctus. Nunc finibus posuere arcu vitae interdum. Sed faucibus pretium elit porttitor egestas. Aliquam in sapien ornare, aliquam augue at, accumsan ligula. Proin lacinia dignissim augue sit amet pharetra. Aliquam elementum ex eu dolor tempus scelerisque. Vivamus gravida egestas urna, nec condimentum turpis sollicitudin a. Ut quis dolor id turpis tempus pretium sed eget mi. Sed vel diam est. Donec sapien eros, sodales at gravida at, vestibulum at arcu. Phasellus ut felis nisl.'
       },
       {
-        id: 2,
+        id: 'JK-002',
         name: 'Ocean View Resort',
         city: 'Bali',
         rating: 4.8,
@@ -64,7 +64,7 @@ export const useHotelsStore = defineStore('hotelsStore', {
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur nibh pharetra odio fermentum, eget ullamcorper orci placerat. Cras sit amet euismod quam. Nunc hendrerit facilisis tempor. Donec et libero a ex venenatis cursus. Ut eu massa nibh. Ut lobortis mauris non quam gravida luctus. Nunc finibus posuere arcu vitae interdum. Sed faucibus pretium elit porttitor egestas. Aliquam in sapien ornare, aliquam augue at, accumsan ligula. Proin lacinia dignissim augue sit amet pharetra. Aliquam elementum ex eu dolor tempus scelerisque. Vivamus gravida egestas urna, nec condimentum turpis sollicitudin a. Ut quis dolor id turpis tempus pretium sed eget mi. Sed vel diam est. Donec sapien eros, sodales at gravida at, vestibulum at arcu. Phasellus ut felis nisl.'
       },
       {
-        id: 3,
+        id: 'JK-003',
         name: 'Bandung City Stay',
         city: 'Bandung',
         rating: 4.3,
@@ -82,7 +82,7 @@ export const useHotelsStore = defineStore('hotelsStore', {
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur nibh pharetra odio fermentum, eget ullamcorper orci placerat. Cras sit amet euismod quam. Nunc hendrerit facilisis tempor. Donec et libero a ex venenatis cursus. Ut eu massa nibh. Ut lobortis mauris non quam gravida luctus. Nunc finibus posuere arcu vitae interdum. Sed faucibus pretium elit porttitor egestas. Aliquam in sapien ornare, aliquam augue at, accumsan ligula. Proin lacinia dignissim augue sit amet pharetra. Aliquam elementum ex eu dolor tempus scelerisque. Vivamus gravida egestas urna, nec condimentum turpis sollicitudin a. Ut quis dolor id turpis tempus pretium sed eget mi. Sed vel diam est. Donec sapien eros, sodales at gravida at, vestibulum at arcu. Phasellus ut felis nisl.'
       },
       {
-        id: 4,
+        id: 'JK-004',
         name: 'Surabaya Business Hotel',
         city: 'Surabaya',
         rating: 4.2,
