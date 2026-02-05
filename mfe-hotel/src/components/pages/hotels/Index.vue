@@ -18,22 +18,10 @@
 
     <Card :show="showCreateForm" @toggle-show="toggleCreateForm">
       <div class="body">
-        <div class="input-text">
-          <label>Name : </label>
-          <input v-model="createFormInput.name" type="text" />
-        </div>
-        <div class="input-text">
-          <label>City : </label>
-          <input v-model="createFormInput.city" type="text" />
-        </div>
-        <div class="input-number">
-          <label>Price : </label>
-          <input v-model="createFormInput.star" type="number" />
-        </div>
-        <div class="input-area">
-          <label>Description : </label>
-          <textarea v-model="createFormInput.description" rows="3"></textarea>
-        </div>
+        <InputText v-model="createFormInput.name" :label="'Name :'" :id="'name'" />
+        <InputText v-model="createFormInput.city" :label="'City :'" :id="'city'" />
+        <InputNumber v-model="createFormInput.star" :label="'Star :'" :id="'star'" />
+        <InputArea v-model="createFormInput.description" :label="'Star :'" :id="'star'" />
         <div class="action">
           <button @click="toggleCreateForm">Cancel</button>
           <button @click="submitCreate">Submit</button>
@@ -49,6 +37,9 @@ import { storeToRefs } from 'pinia'
 import { useHotelsStore, type Hotel, type HotelRaw } from '../../../stores/hotels'
 import { v4 as uuidv4 } from 'uuid'
 import Card from '../../units/card/Card.vue'
+import InputText from '../../units/input/InputText.vue'
+import InputNumber from '../../units/input/InputNumber.vue'
+import InputArea from '../../units/input/InputArea.vue'
 
 const hotelStore = useHotelsStore()
 
