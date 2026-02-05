@@ -11,8 +11,7 @@
     <div class="grid">
       <article v-for="item in filtered" :key="item.id" class="card">
         <div class="title">{{ item.name }}</div>
-        <div class="meta">{{ item.city }} • ⭐ {{ item.rating }}</div>
-        <div class="price">Rp {{ item.price.toLocaleString('id-ID') }}/malam</div>
+        <div class="meta">{{ item.city }} • ⭐ {{ item.star }}</div>
         <RouterLink :to="`/hotel/${item.id}`">Detail</RouterLink>
       </article>
     </div>
@@ -35,11 +34,7 @@
           </div>
           <div class="input-number">
             <label>Price : </label>
-            <input v-model="createFormInput.price" type="number" />
-          </div>
-          <div class="input-number">
-            <label>Rating : </label>
-            <input v-model="createFormInput.rating" type="number" />
+            <input v-model="createFormInput.star" type="number" />
           </div>
           <div class="input-area">
             <label>Description : </label>
@@ -58,25 +53,16 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
-import { useHotelsStore, type Hotel } from '../../../stores/hotels'
+import { useHotelsStore, type Hotel, type HotelRaw } from '../../../stores/hotels'
 import { v4 as uuidv4 } from 'uuid'
-
-type FormType = {
-  name: string
-  city: string
-  rating: number
-  price: number
-  description: string
-}
 
 const hotelStore = useHotelsStore()
 
 const showCreateForm = ref<boolean>(false)
-const createFormInput = ref<FormType>({
+const createFormInput = ref<HotelRaw>({
   name: '',
+  star: 0,
   city: '',
-  rating: 0,
-  price: 0,
   description: ''
 })
 const { hotels } = storeToRefs(hotelStore)
@@ -93,9 +79,8 @@ watch(showCreateForm, (newVal) => {
   if (!newVal) {
     createFormInput.value = {
       name: '',
+      star: 0,
       city: '',
-      rating: 0,
-      price: 0,
       description: ''
     }
   }
