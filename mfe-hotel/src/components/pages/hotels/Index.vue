@@ -16,37 +16,30 @@
       </article>
     </div>
 
-    <div v-if="showCreateForm" class="modal">
-      <div @click="toggleCreateForm" class="outer-layer" />
-      <div class="inner-layer">
-        <div class="head">
-          <button @click="toggleCreateForm">x</button>
-          <div class="title">Add Hotel</div>
+    <Card :show="showCreateForm" @toggle-show="toggleCreateForm">
+      <div class="body">
+        <div class="input-text">
+          <label>Name : </label>
+          <input v-model="createFormInput.name" type="text" />
         </div>
-        <div class="body">
-          <div class="input-text">
-            <label>Name : </label>
-            <input v-model="createFormInput.name" type="text" />
-          </div>
-          <div class="input-text">
-            <label>City : </label>
-            <input v-model="createFormInput.city" type="text" />
-          </div>
-          <div class="input-number">
-            <label>Price : </label>
-            <input v-model="createFormInput.star" type="number" />
-          </div>
-          <div class="input-area">
-            <label>Description : </label>
-            <textarea v-model="createFormInput.description" rows="3"></textarea>
-          </div>
-          <div class="action">
-            <button @click="toggleCreateForm">Cancel</button>
-            <button @click="submitCreate">Submit</button>
-          </div>
+        <div class="input-text">
+          <label>City : </label>
+          <input v-model="createFormInput.city" type="text" />
+        </div>
+        <div class="input-number">
+          <label>Price : </label>
+          <input v-model="createFormInput.star" type="number" />
+        </div>
+        <div class="input-area">
+          <label>Description : </label>
+          <textarea v-model="createFormInput.description" rows="3"></textarea>
+        </div>
+        <div class="action">
+          <button @click="toggleCreateForm">Cancel</button>
+          <button @click="submitCreate">Submit</button>
         </div>
       </div>
-    </div>
+    </Card>
   </section>
 </template>
 
@@ -55,6 +48,7 @@ import { computed, onMounted, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useHotelsStore, type Hotel, type HotelRaw } from '../../../stores/hotels'
 import { v4 as uuidv4 } from 'uuid'
+import Card from '../../units/card/Card.vue'
 
 const hotelStore = useHotelsStore()
 
@@ -96,7 +90,6 @@ const submitCreate = () => {
 
 onMounted(() => {
   const id: string = uuidv4()
-  console.log({ id })
 })
 </script>
 
@@ -148,58 +141,6 @@ onMounted(() => {
 .price {
   margin-top: 10px;
   font-weight: 700;
-}
-.modal {
-  /* display: none; */
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  justify-content: center;
-  align-items: center;
-}
-.modal .outer-layer {
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.modal .inner-layer {
-  background-color: white;
-  min-width: 300px;
-  border-radius: 10px;
-  z-index: 1;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-.modal .inner-layer .head {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-}
-.modal .inner-layer .head button {
-  z-index: 1;
-  align-self: end;
-}
-
-.modal .inner-layer .head .title {
-  margin: 0 auto;
-  width: 100%;
-  text-align: center;
-  top: 0;
-  box-sizing: border-box;
-}
-.modal .inner-layer .body {
-  padding: 8px 20px 40px 20px;
-}
-.modal .inner-layer .body .action {
-  display: flex;
-  justify-content: space-between;
 }
 .input-text,
 .input-number,

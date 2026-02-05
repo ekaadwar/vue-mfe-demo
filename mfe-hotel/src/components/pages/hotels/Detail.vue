@@ -20,13 +20,8 @@ const hotelStore = useHotelsStore()
 const { hotels } = storeToRefs(hotelStore)
 
 const hotelId = computed(() => {
-  console.log({ route })
   const raw = route.params.id
   return Array.isArray(raw) ? raw[0] : (raw?.toString() ?? '')
-})
-
-onMounted(() => {
-  console.log('detail hotel')
 })
 
 const detailHotel = computed<Hotel | undefined>(() =>

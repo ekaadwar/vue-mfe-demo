@@ -143,7 +143,6 @@ export const useHotelsStore = defineStore('hotelsStore', {
         roomType: null
       }
       this.hotels.push(input)
-      console.log({ input })
     }
   }
 })
