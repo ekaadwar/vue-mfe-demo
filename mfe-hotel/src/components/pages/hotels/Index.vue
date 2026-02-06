@@ -12,7 +12,12 @@
       <article v-for="item in filtered" :key="item.id" class="card">
         <div class="title">{{ item.name }}</div>
         <div class="meta">{{ item.city }} • ⭐ {{ item.star }}</div>
-        <RouterLink :to="`/hotel/${item.id}`">Detail</RouterLink>
+        <div class="action">
+          <RouterLink :to="`/hotel/${item.id}`">
+            <button>Detail</button>
+          </RouterLink>
+          <button @click="() => removeHotel(item.id)">Delete</button>
+        </div>
       </article>
     </div>
 
@@ -20,7 +25,11 @@
       <InputText v-model="createFormInput.name" :label="'Name :'" :id="'name'" />
       <InputText v-model="createFormInput.city" :label="'City :'" :id="'city'" />
       <InputNumber v-model="createFormInput.star" :label="'Star :'" :id="'star'" />
-      <InputArea v-model="createFormInput.description" :label="'Star :'" :id="'star'" />
+      <InputArea
+        v-model="createFormInput.description"
+        :label="'Description :'"
+        :id="'description'"
+      />
       <div class="action">
         <button @click="toggleCreateForm">Cancel</button>
         <button @click="submitCreate">Submit</button>
@@ -57,6 +66,10 @@ const filtered = computed<Hotel[]>(() => {
   if (!needle) return hotels.value
   return hotels.value.filter((x: Hotel) => `${x.name} ${x.city}`.toLowerCase().includes(needle))
 })
+
+const removeHotel = (id: String) => {
+  hotelStore.deleteHotel(id)
+}
 
 watch(showCreateForm, (newVal) => {
   if (!newVal) {
@@ -138,10 +151,13 @@ onMounted(() => {
   flex-direction: column;
   margin-bottom: 10px;
 }
-
 .input-text label,
 .input-number label,
 .input-area label {
   text-align: left;
+}
+.card .action {
+  display: flex;
+  justify-content: space-between;
 }
 </style>

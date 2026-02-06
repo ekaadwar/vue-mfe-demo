@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { ref } from 'vue'
 import { v4 as uuidv4 } from 'uuid'
 
 export interface HotelRaw {
@@ -32,7 +33,7 @@ export type HotelsType = {
   hotels: Hotel[]
 }
 
-const seedHotels: Hotel[] = [
+export const seedHotels = ref<Hotel[]>([
   {
     id: '1b55d2b0-f86c-469b-9998-2c2831be2590',
     name: 'Aviary Bintaro',
@@ -129,11 +130,11 @@ const seedHotels: Hotel[] = [
       }
     ]
   }
-]
+])
 
 export const useHotelsStore = defineStore('hotelsStore', {
   state: (): HotelsType => ({
-    hotels: seedHotels
+    hotels: seedHotels.value
   }),
   actions: {
     createHotel(params: HotelRaw) {
@@ -143,6 +144,10 @@ export const useHotelsStore = defineStore('hotelsStore', {
         roomType: null
       }
       this.hotels.push(input)
+    },
+    deleteHotel(params: String) {
+      const index = this.hotels.findIndex((item) => item.id === params)
+      this.hotels.splice(index, 1)
     }
   }
 })
