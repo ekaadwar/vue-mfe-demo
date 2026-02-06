@@ -17,15 +17,13 @@
     </div>
 
     <Card :show="showCreateForm" @toggle-show="toggleCreateForm">
-      <div class="body">
-        <InputText v-model="createFormInput.name" :label="'Name :'" :id="'name'" />
-        <InputText v-model="createFormInput.city" :label="'City :'" :id="'city'" />
-        <InputNumber v-model="createFormInput.star" :label="'Star :'" :id="'star'" />
-        <InputArea v-model="createFormInput.description" :label="'Star :'" :id="'star'" />
-        <div class="action">
-          <button @click="toggleCreateForm">Cancel</button>
-          <button @click="submitCreate">Submit</button>
-        </div>
+      <InputText v-model="createFormInput.name" :label="'Name :'" :id="'name'" />
+      <InputText v-model="createFormInput.city" :label="'City :'" :id="'city'" />
+      <InputNumber v-model="createFormInput.star" :label="'Star :'" :id="'star'" />
+      <InputArea v-model="createFormInput.description" :label="'Star :'" :id="'star'" />
+      <div class="action">
+        <button @click="toggleCreateForm">Cancel</button>
+        <button @click="submitCreate">Submit</button>
       </div>
     </Card>
   </section>
