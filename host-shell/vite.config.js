@@ -12,9 +12,10 @@ export default defineConfig({
         coliving: 'http://127.0.0.1:5002/assets/remoteEntry.js'
       },
       shared: {
-        vue: { singleton: true, requiredVersion: '^3.5.24' },
+        vue: { singleton: true, eager: true, requiredVersion: deps['vue-router'] },
         pinia: { singleton: true, requiredVersion: '^3.0.4' },
-        'vue-router': { singleton: true }
+        'vue-router': { singleton: true },
+        vuex: { singleton: true, eager: true, requiredVersion: deps.vuex }
       }
     })
   ],

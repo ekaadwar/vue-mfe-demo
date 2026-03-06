@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently -n BUILD,SERVE -c auto \"vite build --watch\" \"vite preview --host 127.0.0.1 --port 5003 --strictPort\"",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview --host 127.0.0.1 --port 5003 --strictPort"
   },
   "dependencies": {
     "concurrently": "^9.2.1",
