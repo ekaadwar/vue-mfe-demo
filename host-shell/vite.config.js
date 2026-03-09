@@ -1,6 +1,9 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import federation from '@originjs/vite-plugin-federation'
+import pkg from './package.json'
+
+const deps = pkg.dependencies
 
 export default defineConfig({
   plugins: [
@@ -11,25 +14,33 @@ export default defineConfig({
         hotels: 'http://127.0.0.1:5001/assets/remoteEntry.js',
         coliving: 'http://127.0.0.1:5002/assets/remoteEntry.js',
         kost: {
-          external: 'http://localhost:5003/remoteEntry.js',
+          external: 'http://127.0.0.1:5003/remoteEntry.js',
           from: 'webpack',
-          format: 'var' // atau 'esm' tergantung output remote webpack Anda
+          format: 'var'
         }
       },
-      // shared: {
-      //   vue: { singleton: true, eager: true, requiredVersion: deps['vue-router'] },
-      //   pinia: { singleton: true, requiredVersion: '^3.0.4' },
-      //   'vue-router': { singleton: true },
-      //   vuex: { singleton: true, eager: true, requiredVersion: deps.vuex }
-      // }
-      sharef: ['vue']
+      shared: {
+        vue: {
+          singleton: true,
+          eager: true,
+          requiredVersion: deps.vue
+        },
+        pinia: {
+          singleton: true,
+          requiredVersion: deps.pinia
+        },
+        'vue-router': {
+          singleton: true,
+          requiredVersion: deps['vue-router']
+        }
+      }
     })
   ],
   build: {
     target: 'esnext'
   },
   optimizeDeps: {
-    exclude: ['hotels', 'coliving']
+    exclude: ['hotels', 'coliving', 'kost']
   },
   server: {
     host: '127.0.0.1',

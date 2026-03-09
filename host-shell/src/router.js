@@ -3,6 +3,7 @@ import Dashboard from './views/Dashboard.vue'
 import HotelPage from './views/Hotel/HotelPage.vue'
 import HotelDetail from './views/Hotel/HotelDetail.vue'
 import ColivingPage from './views/ColivingPage.vue'
+import KostPage from './views/Kost/KostPage.vue'
 
 export default createRouter({
   history: createWebHistory(),
@@ -10,6 +11,7 @@ export default createRouter({
     { path: '/', component: Dashboard },
     { path: '/hotel', component: HotelPage },
     { path: '/hotel/:id', component: HotelDetail },
-    { path: '/coliving', component: ColivingPage }
+    { path: '/coliving', component: ColivingPage },
+    { path: '/kost', component: KostPage }
   ]
 })

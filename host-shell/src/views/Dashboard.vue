@@ -9,6 +9,11 @@
       <h3 class="title">Coliving Micro App</h3>
       <ColivingApp />
     </section>
+
+    <section class="panel panel-full">
+      <h3 class="title">Kost Micro App</h3>
+      <KostApp />
+    </section>
   </div>
 </template>
 
@@ -17,6 +22,7 @@ import { defineAsyncComponent } from 'vue'
 
 const HotelApp = defineAsyncComponent(() => import('hotels/HotelApp'))
 const ColivingApp = defineAsyncComponent(() => import('coliving/ColivingApp'))
+const KostApp = defineAsyncComponent(() => import('kost/KostApp'))
 </script>
 
 <style scoped>
@@ -24,6 +30,9 @@ const ColivingApp = defineAsyncComponent(() => import('coliving/ColivingApp'))
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px;
+}
+.panel-full {
+  grid-column: 1 / -1;
 }
 .panel {
   background: #fff;

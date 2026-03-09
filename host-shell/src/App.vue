@@ -6,6 +6,7 @@
         <RouterLink to="/">Dashboard</RouterLink>
         <RouterLink to="/hotel">Hotel</RouterLink>
         <RouterLink to="/coliving">Coliving</RouterLink>
+        <RouterLink to="/kost">Kost</RouterLink>
       </nav>
     </header>
 
