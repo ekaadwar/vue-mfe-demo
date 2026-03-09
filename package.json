@@ -7,7 +7,8 @@
     "mfe-coliving",
     "mfe-apartment",
     "mfe-kost",
-    "mfe-kost-v2"
+    "mfe-kost-v2",
+    "host-shell-vue-cli"
   ],
   "devDependencies": {
     "concurrently": "^9.0.0",
