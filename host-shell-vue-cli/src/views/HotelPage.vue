@@ -3,13 +3,16 @@
     <section class="hero-card">
       <div>
         <p class="hero-card__eyebrow">Dedicated Route</p>
-        <h2>Halaman Kost</h2>
-        <p>Route ini menampilkan remote kost dari project <strong>mfe-kost-v2</strong>.</p>
+        <h2>Halaman Hotel</h2>
+        <p>
+          Route ini menampilkan remote hotel dari project <strong>mfe-hotel</strong> yang dibangun
+          menggunakan Vite.
+        </p>
       </div>
     </section>
 
-    <RemoteContainer title="Kost Page" badge="kost/KostApp">
-      <KostApp />
+    <RemoteContainer title="Hotel Page" badge="hotels/HotelApp">
+      <HotelApp />
     </RemoteContainer>
   </div>
 </template>
@@ -18,8 +21,8 @@
 import { defineAsyncComponent } from 'vue'
 import RemoteContainer from '@/components/RemoteContainer.vue'
 
-const KostApp = defineAsyncComponent({
-  loader: () => import('kost/KostApp'),
+const HotelApp = defineAsyncComponent({
+  loader: () => import('hotels/HotelApp'),
   delay: 200,
   timeout: 20000,
   onError(error, retry, fail, attempts) {
@@ -33,10 +36,10 @@ const KostApp = defineAsyncComponent({
 })
 
 export default {
-  name: 'KostPage',
+  name: 'HotelPage',
   components: {
     RemoteContainer,
-    KostApp
+    HotelApp
   }
 }
 </script>

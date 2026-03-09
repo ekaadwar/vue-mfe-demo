@@ -9,6 +9,7 @@
       <nav class="nav">
         <RouterLink to="/">Dashboard</RouterLink>
         <RouterLink to="/kost">Kost</RouterLink>
+        <RouterLink to="/hotel">Hotel</RouterLink>
       </nav>
     </header>
 

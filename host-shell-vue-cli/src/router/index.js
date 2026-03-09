@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import DashboardPage from '@/views/DashboardPage.vue'
 import KostPage from '@/views/KostPage.vue'
+import HotelPage from '@/views/HotelPage.vue'
+import HotelDetailPage from '@/views/HotelDetailPage.vue'
 
 const routes = [
   {
@@ -12,6 +14,16 @@ const routes = [
     path: '/kost',
     name: 'kost',
     component: KostPage
+  },
+  {
+    path: '/hotel',
+    name: 'hotel',
+    component: HotelPage
+  },
+  {
+    path: '/hotel/:id',
+    name: 'hotel-detail',
+    component: HotelDetailPage
   }
 ]
 
