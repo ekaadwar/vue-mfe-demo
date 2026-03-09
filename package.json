@@ -5,7 +5,9 @@
     "host-shell",
     "mfe-hotel",
     "mfe-coliving",
-    "mfe-apartment"
+    "mfe-apartment",
+    "mfe-kost",
+    "mfe-kost-v2"
   ],
   "devDependencies": {
     "concurrently": "^9.0.0",
