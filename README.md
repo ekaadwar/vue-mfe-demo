@@ -1,4 +1,5 @@
 # Deskripsi Project
+
 Project ini dibuat untuk kebutuhan pengujian dan penerapan metodologi micro-frontend. Aplikasi dibangun dalam bentuk Single Page Application (SPA) yang menampilkan data Hotel dan Coliving dalam satu aplikasi host. Modul Hotel dan Coliving masing-masing merupakan remote application yang berjalan terpisah pada environment yang berbeda.
 
 # Project Setup Guide
@@ -60,6 +61,7 @@ Dokumentasi singkat untuk melakukan clone, instalasi, dan menjalankan project.
 ```bash
 npm run build -w ./mfe-coliving
 npm run build -w ./mfe-hotel
+npm run build -w ./mfe-kost-v2
 ```
 
 ### Jalankan Masing-Masing Project
@@ -71,11 +73,18 @@ npm run build -w ./mfe-hotel
    ```
 
 2. Hotel Project:
+
    ```bash
    npm run dev -w ./mfe-hotel
    ```
 
-3. Host Project:
+3. Kost Project:
+
+   ```bash
+   npm run serve -w ./mfe-kost-v2
+   ```
+
+4. Host Project:
    ```bash
    npm run dev -w ./host-shell
    ```
