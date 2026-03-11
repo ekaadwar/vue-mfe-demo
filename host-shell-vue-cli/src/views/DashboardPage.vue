@@ -43,17 +43,18 @@ const KostApp = defineAsyncComponent({
 })
 
 const HotelApp = defineAsyncComponent({
-  loader: () => import('hotels/HotelApp'),
-  delay: 200,
-  timeout: 20000,
-  onError(error, retry, fail, attempts) {
-    if (attempts <= 2) {
-      retry()
-      return
+  loader: async () => {
+    try {
+      const mod = await import('hotels/HotelApp')
+      console.log('hotels/HotelApp loaded:', mod)
+      return mod
+    } catch (error) {
+      console.error('Failed loading hotels/HotelApp:', error)
+      throw error
     }
-
-    fail(error)
-  }
+  },
+  delay: 200,
+  timeout: 20000
 })
 
 export default {
