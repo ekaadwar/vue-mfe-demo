@@ -7,7 +7,7 @@ module.exports = defineConfig({
   publicPath: 'auto',
   devServer: {
     host: '127.0.0.1',
-    port: 5000,
+    port: 4999,
     historyApiFallback: true,
     headers: {
       'Access-Control-Allow-Origin': '*',

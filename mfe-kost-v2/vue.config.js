@@ -18,10 +18,13 @@ module.exports = defineConfig({
         name: 'kost',
         filename: 'remoteEntry.js',
         exposes: {
-          './KostApp': './src/exposes/KostApp.js'
+          './KostApp': './src/exposes/KostApp.vue'
         },
         shared: {
-          vue: { singleton: true, requiredVersion: '^3.2.13' }
+          vue: {
+            singleton: true,
+            requiredVersion: '^3.2.13'
+          }
         }
       })
     ]
